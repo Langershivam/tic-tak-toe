@@ -7,8 +7,12 @@ function makeMove(cellIndex) {
     cells[cellIndex].style.cursor = "not-allowed";
     cells[cellIndex].style.pointerEvents = "none";
     if (checkWin()) {
-      alert(currentPlayer + " wins! Now you can reset the game");
-      resetBoard();
+
+       setTimeout(()=>{
+        alert(currentPlayer + " wins! Now you can reset the game");
+       },0)
+      
+       resetBoard();
     } else if (checkDraw()) {
       alert("It's a draw!");
       resetBoard();

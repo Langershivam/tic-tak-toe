@@ -1,4 +1,4 @@
-*, *::after, *::before{
+/* *, *::after, *::before{
   box-sizing: border-box;
 }
 
@@ -130,4 +130,94 @@ body{
     margin-top: 10px;
     margin-bottom: 50px;
     
+  } */
+
+  .board {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell:first-child,
+  .cell:nth-child(2),
+  .cell:nth-child(3) {
+    border-top: none;
   }
+
+  .cell:last-child,
+  .cell:nth-child(8),
+  .cell:nth-child(7) {
+    border-bottom: none;
+  }
+
+  .cell:nth-child(3n + 1){
+    border-left: none;
+  }
+
+  .cell:nth-child(3n + 3){
+    border-right: none;
+  }
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    cursor: pointer;
+}
+
+
+
+.cell::before {
+    content: "";
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.2;
+}
+
+.cell::after {
+    content: "";
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.cell::before,
+.cell::after {
+    display: none;
+    pointer-events: none;
+}
+
+.cell.x::before {
+    background-color: #f00;
+}
+
+.cell.x::after {
+    background-color: #f00;
+    transform: rotate(45deg);
+}
+
+.cell.o::before {
+    background-color: #00f;
+}
+
+.cell.o::after {
+    background-color: #00f;
+}
+
+.btn {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+}
